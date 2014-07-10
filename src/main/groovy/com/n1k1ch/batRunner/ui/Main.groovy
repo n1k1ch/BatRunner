@@ -11,17 +11,25 @@ import java.awt.BorderLayout
 
 count = 0
 new SwingBuilder().edt {
-    frame(title: 'MyFramik', size: [400, 250], show: true) {
-        borderLayout()
-        textLabel = label(text: 'Push the button', constraints: BorderLayout.NORTH)
+    frame(title: 'MyFramik', size: [700, 500], show: true) {
+        borderLayout(
+                hgap: 5
+        )
+        textLabel = label(text: 'Push the button',
+                constraints: BorderLayout.WEST)
         button(
-                text: 'Na na',
+                text: 'Center',
                 constraints: BorderLayout.CENTER,
                 actionPerformed: {count--; textLabel.text = "Unclicked ${count} time(z)"}
         )
-        button(text: 'Push me',
-            actionPerformed: {count++; textLabel.text = "Clicked ${count} time(z)"; println("clicked")},
-            constraints:BorderLayout.SOUTH
+        button(
+                text: 'Right',
+                actionPerformed: {count++; textLabel.text = "Clicked ${count} time(z)"; println("clicked")},
+                constraints:BorderLayout.EAST
+        )
+        textLabel = label(
+                text: 'Opa, eshe text',
+                constraints:BorderLayout.EAST
         )
     }
 }
